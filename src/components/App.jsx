@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import CharacterList from "./CharacterList"
 import getDataFromApi from "../services/api"
 import {useEffect,useState} from "react";
-import Filters from "./filters/Filters"
+import Filters from "./filters/Filters";
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
     setFilterName (value)
   }
 
-   
+ const filterCharacters = characters.filter((character) => character.name.toLowerCase().includes(filterName)) 
 
   return (
   <>
@@ -30,7 +30,7 @@ function App() {
     <Route path="/" element={
      <>
         <Filters filterName={filterName} handleFilterName={handleFilterName} />
-        <CharacterList characters={characters}/>
+        <CharacterList characters={filterCharacters}/>
      </>
     }/>
   </Routes>
