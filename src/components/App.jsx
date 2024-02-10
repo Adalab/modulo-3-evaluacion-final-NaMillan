@@ -1,10 +1,12 @@
 import "../scss/App.scss"
 import Header from "./Header"
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, matchPath, useLocation } from 'react-router-dom';
 import CharacterList from "./CharacterList"
 import getDataFromApi from "../services/api"
 import {useEffect,useState} from "react";
 import Filters from "./filters/Filters";
+import CharacterCard from "./CharacterCard";
+import CharacterDetail from "./CharacterDetail";
 
 function App() {
 
@@ -22,10 +24,6 @@ function App() {
     setFilterName (value)
   }
 
-  //const getHouse= () => {
-  //  const houses = characters.map((character) => character.house);
-  //  return houses; 
-  //}
   const handleFilterHouse= (value) =>{
     setFilterHouse (value)
   }
@@ -37,6 +35,14 @@ function App() {
  );
  const combinedFilter= filterName.trim() !== '' ? filterCharacters : filterHouses; 
 
+
+ const { pathname } = useLocation();
+ const routeData = matchPath("/character/:idCharacter",pathname)
+ const idCharacter = routeData != null ? routeData.params.idCharacter : null;
+ const characterData =characters.find((character) => character.id ===idCharacter)
+
+
+
   return (
   <>
   <Header/>
@@ -44,10 +50,11 @@ function App() {
   <Routes>
     <Route path="/" element={
      <>
-        <Filters filterName={filterName} handleFilterName={handleFilterName} /*houses={getHouse()}*/ handleFilterHouse={handleFilterHouse} />
+        <Filters filterName={filterName} handleFilterName={handleFilterName} handleFilterHouse={handleFilterHouse} />
         <CharacterList characters={combinedFilter}/>
      </>
     }/>
+    <Route path="/character/:idCharacter" element={<CharacterDetail character={characterData}/>} />
   </Routes>
     </>
   ); 

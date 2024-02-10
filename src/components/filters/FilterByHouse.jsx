@@ -1,6 +1,6 @@
 
 
-function FilterByHouse(/*houses*/{handleFilterHouse}) {
+function FilterByHouse({handleFilterHouse}) {
 
  
   return (

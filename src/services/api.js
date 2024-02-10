@@ -10,6 +10,8 @@ const getDataFromApi = (house) => {
             species:character.species,
             house:character.house,
             gender:character.gender,
+            alternateNames:character.alternate_names,
+            alive:character.alive,
         };
       });
       return cleanData;
