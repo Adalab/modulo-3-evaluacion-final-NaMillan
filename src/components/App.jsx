@@ -10,17 +10,32 @@ function App() {
 
   const [characters,setCharacters]= useState([])
   const [filterName,setFilterName]= useState ("")
+  const [filterHouse,setFilterHouse]= useState ("Gryffindor")
+ 
   useEffect(() => {
-    getDataFromApi().then((cleanData) => {
+    getDataFromApi(filterHouse).then((cleanData) => {
       setCharacters(cleanData)
         })
-  }, [])
+  }, [filterHouse])
 
   const handleFilterName = (value) => {
     setFilterName (value)
   }
 
- const filterCharacters = characters.filter((character) => character.name.toLowerCase().includes(filterName)) 
+  //const getHouse= () => {
+  //  const houses = characters.map((character) => character.house);
+  //  return houses; 
+  //}
+  const handleFilterHouse= (value) =>{
+    setFilterHouse (value)
+  }
+
+ const filterCharacters = characters.filter((character) => character.name.toLowerCase().includes(filterName.toLowerCase())
+ );
+ const filterHouses= characters.filter((character) => 
+ character.house === filterHouse
+ );
+ const combinedFilter= filterName.trim() !== '' ? filterCharacters : filterHouses; 
 
   return (
   <>
@@ -29,8 +44,8 @@ function App() {
   <Routes>
     <Route path="/" element={
      <>
-        <Filters filterName={filterName} handleFilterName={handleFilterName} />
-        <CharacterList characters={filterCharacters}/>
+        <Filters filterName={filterName} handleFilterName={handleFilterName} /*houses={getHouse()}*/ handleFilterHouse={handleFilterHouse} />
+        <CharacterList characters={combinedFilter}/>
      </>
     }/>
   </Routes>
