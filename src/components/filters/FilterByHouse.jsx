@@ -1,6 +1,6 @@
 
 
-function FilterByHouse({handleFilterHouse}) {
+function FilterByHouse({handleFilterHouse, filterHouse}) {
 
  
   return (
@@ -8,7 +8,7 @@ function FilterByHouse({handleFilterHouse}) {
 
         <label htmlFor="HouseFilter">Selecciona la casa:</label>
     
-    <select id="HouseFilter" onChange= {(ev) =>handleFilterHouse(ev.target.value)}>
+    <select id="HouseFilter" value={filterHouse} onChange= {(ev) =>handleFilterHouse(ev.target.value)}>
         <option value="Gryffindor">Gryffindor</option>
         <option value="Slytherin">Slytherin</option>
         <option value="Hufflepuff">Hufflepuff</option>

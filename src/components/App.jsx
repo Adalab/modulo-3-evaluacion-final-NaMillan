@@ -50,7 +50,7 @@ function App() {
   <Routes>
     <Route path="/" element={
      <>
-        <Filters filterName={filterName} handleFilterName={handleFilterName} handleFilterHouse={handleFilterHouse} />
+        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse} />
         <CharacterList characters={combinedFilter}/>
      </>
     }/>

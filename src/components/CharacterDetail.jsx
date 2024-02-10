@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 function CharacterDetail({character}) {
     return (
@@ -15,6 +15,7 @@ function CharacterDetail({character}) {
          <h3>{character.gender}</h3>
          <h3>{character.house}</h3>
          <h3>{character.alternate_names}</h3>
+         <Link to="/" className="volver">Volver</Link>
         </div>
       )
     }
