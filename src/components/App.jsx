@@ -5,7 +5,6 @@ import CharacterList from "./CharacterList"
 import getDataFromApi from "../services/api"
 import {useEffect,useState} from "react";
 import Filters from "./filters/Filters";
-import CharacterCard from "./CharacterCard";
 import CharacterDetail from "./CharacterDetail";
 
 function App() {
@@ -13,28 +12,46 @@ function App() {
   const [characters,setCharacters]= useState([])
   const [filterName,setFilterName]= useState ("")
   const [filterHouse,setFilterHouse]= useState ("Gryffindor")
+  const [error, setError] = useState('');
  
   useEffect(() => {
-    getDataFromApi(filterHouse).then((cleanData) => {
+       getDataFromApi(filterHouse).then((cleanData) => {
       setCharacters(cleanData)
-        })
-  }, [filterHouse])
+    })
+    }, [filterHouse])
+  
+  useEffect(() => {
+      const characterInHouse = characters.some(
+        (character) =>
+          character.name.toLowerCase().includes(filterName.toLowerCase()) &&
+          character.house === filterHouse
+      );
+  
+      if (filterName.trim() !== '' && !characterInHouse) {
+        setError('Personaje no encontrado en esta casa');
+      } else {
+        setError('');
+      }
+    }, [filterName, filterHouse, characters]);
 
-  const handleFilterName = (value) => {
-    setFilterName (value)
-  }
 
+    const handleFilterName = (value) => {
+    setFilterName (value);
+
+  };
+
+  
   const handleFilterHouse= (value) =>{
     setFilterHouse (value)
-  }
+  };
 
- const filterCharacters = characters.filter((character) => character.name.toLowerCase().includes(filterName.toLowerCase())
- );
- const filterHouses= characters.filter((character) => 
- character.house === filterHouse
- );
- const combinedFilter= filterName.trim() !== '' ? filterCharacters : filterHouses; 
-
+  
+  const filteredCharacters = characters
+  .filter((character) => character.name.toLowerCase().includes(filterName.toLowerCase())
+  )
+  .filter((character) => 
+  character.house === filterHouse
+  )
 
  const { pathname } = useLocation();
  const routeData = matchPath("/character/:idCharacter",pathname)
@@ -50,8 +67,8 @@ function App() {
   <Routes>
     <Route path="/" element={
      <>
-        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse} />
-        <CharacterList characters={combinedFilter}/>
+        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse} error={error}/>
+        <CharacterList characters={filteredCharacters}/>
      </>
     }/>
     <Route path="/character/:idCharacter" element={<CharacterDetail character={characterData}/>} />

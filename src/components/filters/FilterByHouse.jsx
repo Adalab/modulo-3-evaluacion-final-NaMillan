@@ -14,6 +14,7 @@ function FilterByHouse({handleFilterHouse, filterHouse}) {
         <option value="Hufflepuff">Hufflepuff</option>
         <option value="Ravenclaw">Ravenclaw</option>
   </select>
+ 
     </div>
   )
 }
