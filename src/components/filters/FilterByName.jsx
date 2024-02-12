@@ -1,14 +1,14 @@
-
+import '../../scss/layout/filter.scss'
 
 function FilterByName({filterName,handleFilterName, error}) {
   return (
-    <>
-    <label>
-        Nombre del personaje
+    <div className="input-group">
+    <label className="find">
+        Busca por personaje:
     </label>
-    <input type="text" placeholder="Nombre del personaje" value={filterName} onChange={(ev) => handleFilterName(ev.target.value)} />
+    <input className="findCharacter" type="text" placeholder="Nombre del personaje" value={filterName} onChange={(ev) => handleFilterName(ev.target.value)} />
     {error && <div style={{ color: 'red' }}>{error}</div>}
-    </>
+    </div>
   )
 }
 

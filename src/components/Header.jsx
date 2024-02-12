@@ -1,9 +1,10 @@
+import "../scss/layout/header.scss"
 
 
 function Header() {
   return (
-    <header>
-      <h1>Harry Potter</h1>
+    <header className="header">
+      <h1 className="title">Harry Potter</h1>
     </header>
   )
 }
