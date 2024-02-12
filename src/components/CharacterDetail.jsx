@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
+import PropTypes from "prop-types";
+import '../../src/scss/layout/characterList.scss'
 
 function CharacterDetail({character}) {
     return (
-        <div>
+        <div className="card">
          <img 
          className="card_img" 
          src={character.image !== '' ? character.image:'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter' }
@@ -22,6 +24,18 @@ function CharacterDetail({character}) {
          <Link to="/" className="volver">Volver</Link>
         </div>
       )
+    }
+    CharacterDetail.propTypes = {
+      character: PropTypes.shape({
+              id: PropTypes.string.isRequired,
+              house:PropTypes.string.isRequired,
+              image:PropTypes.string.isRequired,
+              name: PropTypes.string.isRequired,
+              species: PropTypes.string.isRequired,
+              alive:PropTypes.bool.isRequired,
+              alternateNames:PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+              gender:PropTypes.string.isRequired,
+          })
     }
 
 export default CharacterDetail

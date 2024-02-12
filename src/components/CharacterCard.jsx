@@ -1,4 +1,5 @@
-
+import PropTypes from "prop-types";
+import '../../src/scss/layout/characterList.scss'
 
 function CharacterCard({character}) {
   return (
@@ -13,6 +14,15 @@ function CharacterCard({character}) {
      <h3 className="card_species">{character.species}</h3>
     </div>
   )
+}
+CharacterCard.propTypes = {
+  character: PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          house:PropTypes.string.isRequired,
+          image:PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          species: PropTypes.string.isRequired,
+      })
 }
 
 

@@ -1,4 +1,5 @@
 import '../../scss/layout/filter.scss'
+import PropTypes from "prop-types";
 
 function FilterByName({filterName,handleFilterName, error}) {
   return (
@@ -10,6 +11,11 @@ function FilterByName({filterName,handleFilterName, error}) {
     {error && <div style={{ color: 'red' }}>{error}</div>}
     </div>
   )
+}
+FilterByName.propTypes = {
+  filterName: PropTypes.string.isRequired,
+  handleFilterName: PropTypes.func.isRequired,
+  error: PropTypes.string,
 }
 
 export default FilterByName
