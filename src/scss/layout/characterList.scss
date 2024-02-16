@@ -9,15 +9,16 @@
     margin: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap:30px;
    
 }
 
 .card{
-  background-color: rgba(218, 179, 6, 0.823);
+  background-color: #7a1010b5;
   padding: 10px;
   text-align: center;
   &:hover {
-    background-color: #7a1010b5;
+    background-color: rgba(218, 179, 6, 0.823);
   }
 }
 

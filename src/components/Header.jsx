@@ -1,10 +1,11 @@
 import "../scss/layout/header.scss"
+import header from "../images/header.png"
 
 
 function Header() {
   return (
     <header className="header">
-      <h1 className="title">Harry Potter</h1>
+      <img src={header} alt="harry potter" className="header__img"/>
     </header>
   )
 }
