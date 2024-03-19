@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types";
+import charactersWithoutPhoto from'../../src/images/charactersWithoutPhoto.jpeg';
 import '../../src/scss/layout/characterList.scss'
 
 function CharacterDetail({character}) {
     return (
-        <div className="card">
+        <article className="card">
          <img 
          className="card_img" 
-         src={character.image !== '' ? character.image:'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter' }
+         src={character.image !== '' ? character.image: charactersWithoutPhoto}
          alt="Foto del personaje"
          title= "Foto del personaje"
          />
@@ -22,7 +23,7 @@ function CharacterDetail({character}) {
          )}
 
          <Link to="/" className="volver">Volver</Link>
-        </div>
+        </article>
       )
     }
     CharacterDetail.propTypes = {

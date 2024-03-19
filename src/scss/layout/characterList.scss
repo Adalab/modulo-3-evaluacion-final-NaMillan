@@ -8,9 +8,15 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap:30px;
+    
    
+}
+@media screen and (min-width: 768px){
+  .list{
+  grid-template-columns: repeat(3, 1fr);
+  gap:30px;
+  }
 }
 
 .card{
@@ -30,4 +36,8 @@
 .list li {
     width: 100%;
   }
+
+.card_tittle{
+  font-size: 2.4rem;
+}
 
