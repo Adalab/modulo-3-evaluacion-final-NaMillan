@@ -4,15 +4,15 @@ import '../../src/scss/layout/characterList.scss'
 
 function CharacterCard({character}) {
   return (
-    <article>
+    <article className="card">
      <img 
      className="card_img" 
      src={character.image !== '' ? character.image: charactersWithoutPhoto}
      alt="Foto del personaje"
      title= "Foto del personaje"
      />
-     <h2 className="card_tittle">{character.name}</h2>
-     <h3 className="card_tittle">{character.species}</h3>
+     <h2 className="card_title">{character.name}</h2>
+     <h3 className="card_title">{character.species}</h3>
     </article>
   )
 }

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 function CharacterList({characters}) {
     const rederCharacters = characters.map((character) => {
-        return <li className="card" key={character.id}>
+        return <li key={character.id}>
             <Link to={`/character/${character.id}`}>
             <CharacterCard character={character}/>
             </Link>

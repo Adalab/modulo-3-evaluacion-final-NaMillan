@@ -12,7 +12,7 @@ function CharacterDetail({character}) {
          alt="Foto del personaje"
          title= "Foto del personaje"
          />
-         <h2 className="card_tittle">{character.name}</h2>
+         <h2 className="card_title">{character.name}</h2>
          <h3>Estatus: {character.alive? 'Vivo' : 'Muerto'}</h3>
          <h3 className="card_species">Especie: {character.species}</h3>
          <h3>Genero: {character.gender}</h3>
