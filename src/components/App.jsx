@@ -6,6 +6,7 @@ import getDataFromApi from "../services/api"
 import {useEffect,useState} from "react";
 import Filters from "./filters/Filters";
 import CharacterDetail from "./CharacterDetail";
+import Footer from "./Footer"
 
 function App() {
 
@@ -63,7 +64,7 @@ function App() {
   return (
   <>
   <Header/>
-   
+  
   <Routes>
     <Route path="/" element={
      <>
@@ -73,6 +74,7 @@ function App() {
     }/>
     <Route path="/character/:idCharacter" element={<CharacterDetail character={characterData}/>} />
   </Routes>
+  <Footer/>
     </>
   ); 
 }
