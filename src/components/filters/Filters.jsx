@@ -6,10 +6,13 @@ import PropTypes from "prop-types";
 
 function Filters({filterName, handleFilterName, handleFilterHouse, filterHouse, error}) {
   return (
+    <section className="search">
+      <h2 className="search__title">Filtrar / Buscar</h2>
     <form className="form" action="">
         <FilterByName filterName={filterName} handleFilterName={handleFilterName} error={error}/>
         <FilterByHouse handleFilterHouse={handleFilterHouse} filterHouse={filterHouse} error={error} />
     </form>
+    </section>
   )
 }
 Filters.propTypes = {

@@ -1,4 +1,23 @@
-.form {
+.search {
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0.46875rem 2.1875rem rgba(122, 16, 16, 0.7098), 
+  0 0.9375rem 1.40625rem rgba(3, 10, 26, 0.03), 
+  0 0.25rem 0.53125rem rgba(122, 16, 16, 0.7098), 
+  0 0.125rem 0.1875rem rgba(122, 16, 16, 0.7098);
+  transform: translate(10%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  border-radius: 10px;
+}
+
+
+
+
+/*.form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +26,7 @@
   margin-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.5);
  
-}
+} */
 
 .input-group {
   display: flex;
@@ -18,7 +37,6 @@
 .find {
   font-size: 1.8rem;
   color:rgba(0, 0, 0, 0.800);
-  margin-right: 10px;
   white-space: nowrap;
   
 }
