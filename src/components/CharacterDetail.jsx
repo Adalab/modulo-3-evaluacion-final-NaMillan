@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import charactersWithoutPhoto from'../../src/images/charactersWithoutPhoto.jpeg';
 import '../../src/scss/layout/characterList.scss'
 
+
 function CharacterDetail({character}) {
-    return (
+  return (
         <article className="card">
          <img 
          className="card_img" 
@@ -21,8 +22,10 @@ function CharacterDetail({character}) {
          {character.alternateNames?.length > 0 && (
          <h3>Nombres Alternativos: {character.alternateNames.join(', ')}</h3>
          )}
-
-         <Link to="/" className="volver">Volver</Link>
+         <Link to="/">
+        <button className="detailPage__btn">
+        </button>
+        </Link>
         </article>
       )
     }

@@ -1,6 +1,11 @@
 const getDataFromApi = (house) => {
     return fetch (`https://hp-api.onrender.com/api/characters/house/${house}`)
-    .then ((response) => response.json())
+    .then ((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then ((data) => {
      const cleanData = data.map((character) => {
         return{
@@ -15,7 +20,10 @@ const getDataFromApi = (house) => {
         };
       });
       return cleanData;
-     });    
-    };
-
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            throw error; 
+        });
+};
     export default getDataFromApi

@@ -1,9 +1,14 @@
 import CharacterCard from "./CharacterCard"
 import { Link } from "react-router-dom"
 import '../../src/scss/layout/characterList.scss'
+import NotFound from "./NotFound";
 import PropTypes from "prop-types";
 
-function CharacterList({characters}) {
+
+function CharacterList({characters, error}) {
+    if (error) {
+        return <NotFound error={error} />;
+      }
     const rederCharacters = characters.map((character) => {
         return <li key={character.id}>
             <Link to={`/character/${character.id}`}>
@@ -27,9 +32,10 @@ CharacterList.propTypes = {
             id: PropTypes.string.isRequired,
             house:PropTypes.string.isRequired,
             image:PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired, 
         })
     ).isRequired,
+    error: PropTypes.string
 }
 
 export default CharacterList
