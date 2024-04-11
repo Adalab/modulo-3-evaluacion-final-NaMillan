@@ -6,13 +6,13 @@
   0 0.9375rem 1.40625rem rgba(3, 10, 26, 0.03), 
   0 0.25rem 0.53125rem rgba(122, 16, 16, 0.7098), 
   0 0.125rem 0.1875rem rgba(122, 16, 16, 0.7098);
-  transform: translate(10%, -50%);
+  transform: translate(10%, 0%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
   border-radius: 10px;
+  padding:15px;
   
 &__title{
   color:#dcb759;
@@ -28,21 +28,50 @@
  }
 }
 
-.input-group {
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width: 768px){
+    flex-direction: row;
+    justify-content: space-evenly;
+  
+ }
+}
+
+.find{
+  color:#dcb759;
+  font-size: 1.5rem;
+  font-family: $font-text;
+  padding-right: 10px;
+  @media screen and (min-width: 768px){
+    font-size: 1.8rem;
+   }
+}
+.inputGroup{
+  padding:10px;
+}
+
+
+
+
+
+.findCharacter{
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  align-items: center;
+  width: 15rem;
+  border:3px;
+  height: 3rem;
+  border-radius: 0.6rem;
+  border-color: $color-yellow;
+  background-color: rgba(82, 75, 25, 0.804);
+  color:rgb(255, 247, 204);
+  font-family: $font-text;
+  font-size: 1.3rem;
+  padding-left: 5px;
 }
-
-.find {
-  font-size: 1.8rem;
-  color:rgba(0, 0, 0, 0.800);
-  white-space: nowrap;
-  
+.findCharacter::placeholder {
+  color: rgba(255, 247, 204, 0.434);
 }
-.findCharacter{
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 3px solid rgba(218, 179, 6, 0.783);
-  color:rgba(0, 0, 0, 0.800);
-}
-

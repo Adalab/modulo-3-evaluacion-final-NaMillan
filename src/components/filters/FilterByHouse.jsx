@@ -5,9 +5,9 @@ function FilterByHouse({handleFilterHouse, filterHouse}) {
 
  
   return (
-    <div className="input-group">
+    <div className="inputGroup">
 
-        <label className="find" htmlFor="HouseFilter">Selecciona la casa:</label>
+        <label className="find" htmlFor="HouseFilter">Buscar por casa:</label>
     
     <select className="findCharacter" id="HouseFilter" value={filterHouse} onChange= {(ev) =>handleFilterHouse(ev.target.value)}>
         <option value="Gryffindor">Gryffindor</option>

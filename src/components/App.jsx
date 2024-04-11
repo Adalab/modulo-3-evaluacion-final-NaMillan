@@ -67,6 +67,12 @@ function App() {
   character.house === filterHouse
   )
 
+const handleReset = (ev) => {
+    ev.preventDefault();
+    setFilterName('');
+    setFilterHouse('Gryffindor');
+   };
+
  const { pathname } = useLocation();
  const routeData = matchPath("/character/:idCharacter",pathname)
  const idCharacter = routeData != null ? routeData.params.idCharacter : null;
@@ -81,7 +87,7 @@ function App() {
   <Routes>
     <Route path="/" element={
      <>
-        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse}  characterError={characterError}/>
+        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse}  characterError={characterError} handleReset={handleReset}/>
         <CharacterList characters={filteredCharacters} error={error} />
      </>
     }

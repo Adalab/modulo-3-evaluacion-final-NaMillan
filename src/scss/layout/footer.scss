@@ -1,6 +1,6 @@
 @import '../../scss/core/_variables.scss';
 .footer{
-  background-color: $color-transparent;
+  background-color: $color-red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,15 +8,16 @@
 &__text{
   font-family:"font-text";
   font-size: 1.8rem;
-  color:$color-red;
+  color:$color-letters;
   margin-right: 20px;
   font-weight: bold;
 }    
-&__icon{
-  color:$color-red;
+&__icon {
+  color:$color-letters;
   font-size: 24px;
   padding-right: 25px;
 }
+
 
 @media screen and (min-width: 768px){
   

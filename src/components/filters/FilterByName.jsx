@@ -5,11 +5,11 @@ import NotFound from "../NotFound"
 
 function FilterByName({filterName,handleFilterName,characterError}) {
   return (
-    <div className="input-group">
-    <label className="find">
-        Busca por personaje:
+    <div className="inputGroup">
+    <label className="find" htmlFor="searchInput">
+        Buscar por nombre:
     </label>
-    <input className="findCharacter" type="text" placeholder="Nombre del personaje" value={filterName} onChange={(ev) => handleFilterName(ev.target.value)} />
+    <input id="searchInput" className="findCharacter" type="text" placeholder="Ej.Harry" value={filterName} onChange={(ev) => handleFilterName(ev.target.value)} />
     {characterError && <NotFound characterError={characterError} />} 
     </div>
   )
