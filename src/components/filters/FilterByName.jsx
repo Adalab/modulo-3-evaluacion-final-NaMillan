@@ -1,6 +1,6 @@
 import '../../scss/layout/filter.scss'
 import PropTypes from "prop-types";
-import NotFound from "../NotFound" 
+//import NotFound from "../NotFound" 
 
 
 function FilterByName({filterName,handleFilterName,characterError}) {
@@ -10,7 +10,7 @@ function FilterByName({filterName,handleFilterName,characterError}) {
         Buscar por nombre:
     </label>
     <input id="searchInput" className="findCharacter" type="text" placeholder="Ej.Harry" value={filterName} onChange={(ev) => handleFilterName(ev.target.value)} />
-    {characterError && <NotFound characterError={characterError} />} 
+    {characterError && <p>{characterError}</p>}
     </div>
   )
 }

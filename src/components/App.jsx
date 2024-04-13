@@ -87,8 +87,8 @@ const handleReset = (ev) => {
   <Routes>
     <Route path="/" element={
      <>
-        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse}  characterError={characterError} handleReset={handleReset}/>
-        <CharacterList characters={filteredCharacters} error={error} />
+        <Filters filterName={filterName} handleFilterName={handleFilterName} filterHouse={filterHouse} handleFilterHouse={handleFilterHouse}   handleReset={handleReset}/>
+        <CharacterList characters={filteredCharacters} error={error} characterError={characterError} />
      </>
     }
     />

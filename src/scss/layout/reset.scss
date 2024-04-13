@@ -34,13 +34,13 @@
     font-size: 1.5rem;
     letter-spacing: 3px;
     color: $color-letters;
-    //text-shadow: 0 0 4px white;
   }
   
   #glow {
     position: absolute;
     display: flex;
     width: 12rem;
+    flex-wrap: wrap;
   }
   
   .circle {

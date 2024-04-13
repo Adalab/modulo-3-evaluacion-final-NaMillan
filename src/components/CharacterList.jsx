@@ -5,7 +5,8 @@ import NotFound from "./NotFound";
 import PropTypes from "prop-types";
 
 
-function CharacterList({characters, error}) {
+
+function CharacterList({characters, error,characterError}) {
     if (error) {
         return <NotFound error={error} />;
       }
@@ -14,7 +15,7 @@ function CharacterList({characters, error}) {
             <Link to={`/character/${character.id}`}>
             <CharacterCard character={character}/>
             </Link>
-        </li>
+         </li>
     })
   
   return (
@@ -22,6 +23,7 @@ function CharacterList({characters, error}) {
         <ul className="list">
             {rederCharacters}
         </ul>
+        <NotFound characterError={characterError} />
         </section>
    
   )

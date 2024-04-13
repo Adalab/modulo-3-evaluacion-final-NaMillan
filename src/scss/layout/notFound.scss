@@ -1,1 +1,19 @@
 @import '../../scss/core/_variables.scss';
+
+.notFound{
+color:#dcb759;
+font-size: 3.5rem;
+font-family: 'customFont';
+font-weight: bold;
+letter-spacing: 5px;
+padding-top: 15px;
+display:flex;
+justify-content: center;
+height: 45vh;
+align-items: center;
+text-align: center;
+@media screen and (min-width: 1024px){
+height: 50vh;
+font-size: 4rem;
+}
+}

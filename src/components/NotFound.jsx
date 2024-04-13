@@ -4,7 +4,7 @@ import '../scss/layout/notFound.scss'
 
 function NotFound({error, characterError}) {
   return (
-    <section className="not-found">
+    <section className="notFound">
       {error && <p>{error}</p>}
       {characterError && <p>{characterError}</p>}
      </section>
