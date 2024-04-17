@@ -8,26 +8,27 @@ import PropTypes from "prop-types";
 
 function CharacterList({characters, error,characterError}) {
     if (error) {
-        return <NotFound error={error} />;
+        return <NotFound error={error}/>;
       }
-    const rederCharacters = characters.map((character) => {
-        return <li key={character.id}>
+      let content = null;
+      if (characters.length > 0) {
+        content = characters.map((character) => (
+          <li key={character.id}>
             <Link to={`/character/${character.id}`}>
-            <CharacterCard character={character}/>
+              <CharacterCard character={character} />
             </Link>
-         </li>
-    })
-  
-  return (
-    <section className="section">
-        <ul className="list">
-            {rederCharacters}
-        </ul>
-        <NotFound characterError={characterError} />
+          </li>
+        ));
+      } else {
+        content = <NotFound characterError={characterError} />;
+      }
+    
+      return (
+        <section className="section">
+          <ul className="list">{content}</ul>
         </section>
-   
-  )
-}
+      );
+    }
 CharacterList.propTypes = {
     characters: PropTypes.arrayOf(
         PropTypes.shape({
@@ -37,7 +38,8 @@ CharacterList.propTypes = {
             name: PropTypes.string.isRequired, 
         })
     ).isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
+    characterError: PropTypes.string,
 }
 
 export default CharacterList

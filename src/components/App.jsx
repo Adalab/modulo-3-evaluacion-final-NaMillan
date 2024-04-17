@@ -95,7 +95,6 @@ const handleReset = (ev) => {
     <Route path="/character/:idCharacter" element={
      <>
     <CharacterDetail character={characterData} />
-  {/*<NotFound error={error} characterError={characterError}/>*/}
     </> 
     } />
    </Routes>
