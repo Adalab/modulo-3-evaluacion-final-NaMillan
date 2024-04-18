@@ -4,16 +4,14 @@ import PropTypes from "prop-types";
 
 
 function CharacterDetail({character}) {
-
-    return (
-      <div className="characterDetail">
+  return character ? (
+    <div className="characterDetail">
       <CardDetail character={character} />
-
       <Link to="/">
         <button className="detailPage__btn">Volver</button>
       </Link>
     </div>
-  );
+  ) : null;
 }
 CharacterDetail.propTypes = {
   character: PropTypes.shape({
@@ -23,7 +21,7 @@ CharacterDetail.propTypes = {
     name: PropTypes.string.isRequired,
     species: PropTypes.string.isRequired,
     alive: PropTypes.bool.isRequired,
-    alternateNames: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    alternateNames: PropTypes.arrayOf(PropTypes.string),
     gender: PropTypes.string.isRequired,
   }).isRequired,
 };

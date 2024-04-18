@@ -94,7 +94,7 @@ const handleReset = (ev) => {
     />
     <Route path="/character/:idCharacter" element={
      <>
-    <CharacterDetail character={characterData} />
+    {characterData && <CharacterDetail character={characterData} />}
     </> 
     } />
    </Routes>
